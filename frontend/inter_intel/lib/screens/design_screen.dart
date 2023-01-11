@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:inter_intel/models/models.dart';
 import 'package:inter_intel/services/services.dart';
 import 'package:flutter_switch_clipper/flutter_switch_clipper.dart';
-
+import 'package:inter_intel/screens/screens.dart';
 
 class DesignScreen extends StatefulWidget {
   const DesignScreen({Key? key}) : super(key: key);
@@ -108,10 +108,13 @@ class _DesignScreenState extends State<DesignScreen> with SingleTickerProviderSt
                 pinned: true,
                 leading: IconButton(
                   icon: const Icon(FontAwesomeIcons.arrowLeftLong, color: Colors.blue,),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => NavScreen(selectedIndex: 1,),),);
+                  },
                 ),
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               ),
+
               SliverPadding(
                 padding: const EdgeInsets.all(2),
                 sliver: SliverToBoxAdapter(
@@ -127,7 +130,9 @@ class _DesignScreenState extends State<DesignScreen> with SingleTickerProviderSt
                             blurRadius: 6.0)
                       ],
                     ),
-                    child: GridView.builder(
+                    child: userList.isEmpty ?
+                    const Center(child: CircularProgressIndicator()) :
+                    GridView.builder(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                       scrollDirection: Axis.vertical,
                       itemCount: userList.length,
@@ -163,7 +168,7 @@ class _DesignScreenState extends State<DesignScreen> with SingleTickerProviderSt
                                             Row(
                                               children: [
                                                 const Icon(
-                                                  FontAwesomeIcons.envelope,
+                                                  Icons.mail,
                                                   size: 15.0,
                                                   color: Colors.blue,
                                                 ),
@@ -227,23 +232,23 @@ class _DesignScreenState extends State<DesignScreen> with SingleTickerProviderSt
                                                 color: baseColor,
                                                 child: Center(
                                                   child: ClayContainer(
-                                                      height: 40,
-                                                      width: 40,
-                                                      borderRadius: 20,
-                                                      color: baseColor,
-                                                      depth: calculatedThirdDepth.toInt(),
-                                                      curveType: CurveType.concave,
-                                                      child: SwitchCipper(
-                                                        background: const Icon(Icons.favorite, size: 20, color: Colors.blue),
-                                                        curve: Curves.ease,
-                                                        duration: const Duration(milliseconds: 2000),
-                                                        customCipperBuilder: (Animation<double> animation) => FillClipper(
-                                                          animation: animation,
-                                                          fillAlignment: _alignment,
-                                                          fillOffset: 50,
-                                                        ),
-                                                        child: const Icon(Icons.favorite, size: 20, color: Colors.red),
+                                                    height: 40,
+                                                    width: 40,
+                                                    borderRadius: 20,
+                                                    color: baseColor,
+                                                    depth: calculatedThirdDepth.toInt(),
+                                                    curveType: CurveType.concave,
+                                                    child: SwitchCipper(
+                                                      background: const Icon(Icons.favorite, size: 20, color: Colors.blue),
+                                                      curve: Curves.ease,
+                                                      duration: const Duration(milliseconds: 2000),
+                                                      customCipperBuilder: (Animation<double> animation) => FillClipper(
+                                                        animation: animation,
+                                                        fillAlignment: _alignment,
+                                                        fillOffset: 50,
                                                       ),
+                                                      child: const Icon(Icons.favorite, size: 20, color: Colors.red),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
