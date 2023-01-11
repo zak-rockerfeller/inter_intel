@@ -3,7 +3,7 @@ This project is a Flutter and Laravel application that demonstrates the use of a
 
 
 <h3>Features</h3>
-<ol>Actionbar and bottom navigation bar with menu items
+• Actionbar and bottom navigation bar with menu items.</br>
 Transitions and animations between screens
 An impressive splash screen
 A form on the "info" screen that captures a user's basic information (name, email, phone number) and a submit button.
@@ -11,7 +11,6 @@ A user profile card that is created on the "design" screen when the submit butto
 Custom widgets on the "design" screen to showcase UI and UX skills
 Networking call to the https://jsonplaceholder.typicode.com/todos?_limit=5 API on the "response" screen to display a list of todos indicating the title and completed value.
 Sorting of a dictionary/array on the "dictionary" screen, where numeric keys are sorted in ascending order and alpha keys are sorted in ASCII ascending order, and displayed in key:value format on a card or any other display widget.
-</ol>
 
 
 <h3>Getting Started</h3>
